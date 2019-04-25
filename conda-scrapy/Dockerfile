@@ -1,3 +1,4 @@
+
 FROM debian:latest
 MAINTAINER xxx Team <1036097498@qq.com>
 
@@ -12,7 +13,9 @@ RUN apt-get update && apt-get -y install curl bzip2 \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log \
     && conda clean --all --yes \
-    && apt-get install ssh
+    && apt-get install ssh  \
+    && conda create -n python3.7 numpy matplotlib python=3.7 \
+    && activate python3.7
 
 RUN pip install -r soft-pip.txt
 RUN conda install -r soft-conda.txt
