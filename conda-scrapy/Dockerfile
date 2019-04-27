@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -y install wget bzip2 \
     
 ENV PATH=/root/conda/bin:$PATH
 RUN ln -s /bin/bash /bin/sh  -f
-RUN source .bashrc
+RUN export PATH=/root/conda/bin:$PATH
 RUN conda install -y python=3.7 \
     && conda update conda \
     && apt-get -qq -y remove bzip2 curl \
