@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y install wget bzip2 \
     && rm Miniconda3-latest-Linux-x86_64.sh 
     
 ENV PATH=/root/conda/bin:$PATH
-RUN ln -s /bin/bash /bin/sh 
+RUN ln -s /bin/bash /bin/sh  -f
 RUN source .bashrc
 RUN conda install -y python=3.7 \
     && conda update conda \
