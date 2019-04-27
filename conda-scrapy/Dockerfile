@@ -17,7 +17,7 @@ RUN conda install -y python=3.7 \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log \
     && conda clean --all --yes \
-    && apt-get install ssh  \
+    && apt-get -y install ssh  \
     && conda create -n python3.7 numpy matplotlib python=3.7 \
     && activate python3.7
 
