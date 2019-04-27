@@ -16,6 +16,8 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
 #    && apt-get install ssh  \
 #    && conda create -n python3.7 numpy matplotlib python=3.7 \
 #    && activate python3.7
+##
+ENV PATH /opt/conda/bin:$PATH
 
 RUN pip install -r soft-pip.txt
 RUN conda install -r soft-conda.txt
@@ -29,8 +31,7 @@ EXPOSE 5000
 EXPOSE 9000
 
 
-##
-ENV PATH /opt/conda/bin:$PATH
+
 
 CMD ["/bin/bash","/etc/init.d/ssh"]
 
